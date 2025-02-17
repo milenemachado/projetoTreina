@@ -1,0 +1,141 @@
+function generateCurriculumHTML() {
+  // Obtenha os dados do formulário
+  const nome = document.getElementById('nome').value;
+  const rua = document.getElementById('rua').value;
+  const numero = document.getElementById('numero').value;
+  const cep = document.getElementById('cep').value;
+  const bairro = document.getElementById('bairro').value;
+  const cidade = document.getElementById('cidade').value;
+  const uf = document.getElementById('uf').value;
+  const ddd = document.getElementById('ddd').value;
+  const telefone = document.getElementById('telefone').value;
+  const whatsappSim = document.getElementById('whatsappSim').checked;
+  const email = document.getElementById('email').value;
+
+  // Obtenha os dados dos componentes FormacaoAcademica, Experiencias e RedesSociais
+  const formacaoAcademica = getFormacaoAcademicaData();
+  const experiencias = getExperienciasData();
+  const redesSociais = getRedesSociaisData();
+
+  // Função auxiliar para obter os dados de um componente
+  function getDataFromComponent(componentId) {
+    const component = document.querySelector(componentId);
+    if (component) {
+      return component.value; // Adapte para a forma como os dados são armazenados no seu componente
+    }
+    return '';
+  }
+
+  function getFormacaoAcademicaData() {
+    // Implemente a lógica para coletar os dados do componente FormacaoAcademica
+    // Você pode usar querySelector para encontrar os elementos e obter os valores
+    const formacoes = [];
+    const formacaoElements = document.querySelectorAll('.formacao-item'); // Seletor de exemplo
+    formacaoElements.forEach(formacaoElement => {
+      formacoes.push({
+        instituicao: formacaoElement.querySelector('.instituicao').value, // Seletor de exemplo
+        curso: formacaoElement.querySelector('.curso').value, // Seletor de exemplo
+        // ... outros campos
+      });
+    });
+    return formacoes;
+  }
+
+  function getExperienciasData() {
+    // Implemente a lógica para coletar os dados do componente Experiencias
+    const experiencias = [];
+    const experienciaElements = document.querySelectorAll('.experiencia-item'); // Seletor de exemplo
+    experienciaElements.forEach(experienciaElement => {
+      experiencias.push({
+        empresa: experienciaElement.querySelector('.empresa').value, // Seletor de exemplo
+        cargo: experienciaElement.querySelector('.cargo').value, // Seletor de exemplo
+        // ... outros campos
+      });
+    });
+    return experiencias;
+  }
+
+  function getRedesSociaisData() {
+    // Implemente a lógica para coletar os dados do componente RedesSociais
+    return {
+      email: document.getElementById('email').value,
+      linkedin: document.getElementById('linkedin').value,
+      github: document.getElementById('github').value,
+      facebook: document.getElementById('facebook').value,
+      instagram: document.getElementById('instagram').value,
+    };
+  }
+
+  // Crie o HTML do currículo
+  let html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Currículo</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <style>
+        /* Adicione estilos CSS personalizados aqui */
+        .container {
+          margin-top: 20px;
+        }
+        .section {
+          margin-bottom: 20px;
+        }
+        .section-title {
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        .item {
+          margin-bottom: 5px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Currículo</h1>
+
+        <div class="section">
+          <h2 class="section-title">Dados Pessoais</h2>
+          <p><strong>Nome:</strong> ${nome}</p>
+          <p><strong>Endereço:</strong> ${rua}, ${numero}, ${cep}, ${bairro}, ${cidade}, ${uf}</p>
+          <p><strong>Telefone:</strong> ${ddd} ${telefone} ${whatsappSim ? '(WhatsApp)' : ''}</p>
+          <p><strong>Email:</strong> ${email}</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Formação Acadêmica</h2>
+          ${formacaoAcademica.map(formacao => `
+            <div class="item">
+              <p><strong>Instituição:</strong> ${formacao.instituicao}</p>
+              <p><strong>Curso:</strong> ${formacao.curso}</p>
+              {/* ... outros campos */}
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Experiências Profissionais</h2>
+          ${experiencias.map(experiencia => `
+            <div class="item">
+              <p><strong>Empresa:</strong> ${experiencia.empresa}</p>
+              <p><strong>Cargo:</strong> ${experiencia.cargo}</p>
+              {/* ... outros campos */}
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Redes Sociais</h2>
+          <p><strong>Email:</strong> ${redesSociais.email}</p>
+          <p><strong>LinkedIn:</strong> ${redesSociais.linkedin}</p>
+          <p><strong>GitHub:</strong> ${redesSociais.github}</p>
+          <p><strong>Facebook:</strong> ${redesSociais.facebook}</p>
+          <p><strong>Instagram:</strong> ${redesSociais.instagram}</p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+
+  return html;
+}

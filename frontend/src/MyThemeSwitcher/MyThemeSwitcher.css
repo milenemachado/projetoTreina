@@ -1,0 +1,13 @@
+
+[data-bs-theme="light"] {
+    --bs-body-bg: #fff;
+    --bs-text-color: #000;
+  
+}
+
+
+[data-bs-theme="dark"] {
+    --bs-body-bg: #000;
+    --bs-text-color: #fff;
+
+}
