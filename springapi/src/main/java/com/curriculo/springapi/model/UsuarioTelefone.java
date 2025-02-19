@@ -24,7 +24,7 @@ public class UsuarioTelefone {
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_telefone")
     private Telefone telefone;
 }

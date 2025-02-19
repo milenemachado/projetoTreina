@@ -17,7 +17,6 @@ function generateCurriculumHTML() {
   const experiencias = getExperienciasData();
   const redesSociais = getRedesSociaisData();
 
-  // Função auxiliar para obter os dados de um componente
   function getDataFromComponent(componentId) {
     const component = document.querySelector(componentId);
     if (component) {
@@ -27,8 +26,7 @@ function generateCurriculumHTML() {
   }
 
   function getFormacaoAcademicaData() {
-    // Implemente a lógica para coletar os dados do componente FormacaoAcademica
-    // Você pode usar querySelector para encontrar os elementos e obter os valores
+
     const formacoes = [];
     const formacaoElements = document.querySelectorAll('.formacao-item'); // Seletor de exemplo
     formacaoElements.forEach(formacaoElement => {
@@ -42,7 +40,7 @@ function generateCurriculumHTML() {
   }
 
   function getExperienciasData() {
-    // Implemente a lógica para coletar os dados do componente Experiencias
+    
     const experiencias = [];
     const experienciaElements = document.querySelectorAll('.experiencia-item'); // Seletor de exemplo
     experienciaElements.forEach(experienciaElement => {
@@ -56,7 +54,7 @@ function generateCurriculumHTML() {
   }
 
   function getRedesSociaisData() {
-    // Implemente a lógica para coletar os dados do componente RedesSociais
+
     return {
       email: document.getElementById('email').value,
       linkedin: document.getElementById('linkedin').value,
@@ -66,7 +64,7 @@ function generateCurriculumHTML() {
     };
   }
 
-  // Crie o HTML do currículo
+
   let html = `
     <!DOCTYPE html>
     <html>

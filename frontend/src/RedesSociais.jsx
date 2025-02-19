@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faLinkedin,
   faGithub,
-  faFacebook,
-  faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
@@ -64,34 +62,6 @@ function RedesSociais() {
           id="github"
           name="github"
           value={redes.github}
-          onChange={handleChange} 
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="facebook" className="form-label">
-          Facebook
-          <FontAwesomeIcon icon={faFacebook} className="ms-2" />
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="facebook"
-          name="facebook"
-          value={redes.facebook}
-          onChange={handleChange} 
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="instagram" className="form-label">
-          Instagram
-          <FontAwesomeIcon icon={faInstagram} className="ms-2" />
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="instagram"
-          name="instagram"
-          value={redes.instagram}
           onChange={handleChange} 
         />
       </div>
