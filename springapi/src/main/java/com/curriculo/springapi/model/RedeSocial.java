@@ -19,15 +19,15 @@ public class RedeSocial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "github", unique=true, nullable = true)
+    @Column(name = "github",columnDefinition = "TEXT", unique=true, nullable = true)
     private String github;
 
-    @Column(name = "linkedin", unique=true, nullable =true)
+    @Column(name = "linkedin",columnDefinition = "TEXT", unique=true, nullable =true)
     private String linkedin;
 
-    @Column(name = "instagram", unique=true, nullable = true)
+    @Column(name = "instagram",columnDefinition = "TEXT", unique=true, nullable = true)
     private String instagram;
 
-    @Column(name = "whatsapp", unique=true, nullable = true)
+    @Column(name = "whatsapp",columnDefinition = "TEXT", unique=true, nullable = true)
     private String whatsapp;
 }

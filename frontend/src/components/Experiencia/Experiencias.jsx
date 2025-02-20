@@ -11,7 +11,7 @@ function Experiencias() {
         cargo: '',
         inicio: '',
         fim: '',
-        tipo: 'formal', // Valor padrão: trabalho formal
+        tipo: 'formal', 
       },
     ]);
   };

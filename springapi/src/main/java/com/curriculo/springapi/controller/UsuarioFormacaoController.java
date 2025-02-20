@@ -9,26 +9,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.curriculo.springapi.model.DDD;
-import com.curriculo.springapi.repository.DDDRepository;
+import com.curriculo.springapi.model.UsuarioFormacao;
+import com.curriculo.springapi.repository.UsuarioFormacaoRepository;
 import com.curriculo.springapi.Service.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
-@RequestMapping("/ddd")
-public class DDDController {
+@RequestMapping("/usuarioformacao")
+public class UsuarioFormacaoController {
     
     @PostMapping
-    public ResponseEntity<DDD> createEndereco(@RequestBody DDD ddd) {
-        return Service.cadastrarDDD(ddd,dddRepository);
+    public ResponseEntity<UsuarioFormacao> save(@RequestBody UsuarioFormacao usuarioFormacao) {
+        return Service.cadastroFormacao(usuarioFormacao,usuarioFormacaoRepository);
     }
 
-    @GetMapping
-    public ResponseEntity<List<DDD>> ddd() {
-        return ResponseEntity.status(HttpStatus.OK).body(dddRepository.findAll());
-    }
-    
-    
     @Autowired
-    private DDDRepository dddRepository;
+    private UsuarioFormacaoRepository usuarioFormacaoRepository;
 }

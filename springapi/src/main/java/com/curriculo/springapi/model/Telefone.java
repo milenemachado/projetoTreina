@@ -23,6 +23,7 @@ public class Telefone {
 
     @Column(name = "telefone",unique=true, nullable = false,length = 9)
     private String telefone;
+    
 
     @ManyToOne
     @JoinColumn(name = "id_ddd", nullable = false)

@@ -27,9 +27,9 @@ public class Formacao {
     @Column(name = "fim" ,nullable = false)
     private LocalDate fim;
 
-    @Column(name = "Curso", nullable = false)
+    @Column(name = "curso", nullable = false)
     private String curso;
 
-    @Column(name = "Grau", nullable = false)
+    @Column(name = "grau", nullable = false)
     private String grau;
 }

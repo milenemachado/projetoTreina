@@ -7,10 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.curriculo.springapi.model.Telefone;
+import com.curriculo.springapi.model.Formacao;
 
-public interface TelefoneRepository extends JpaRepository<Telefone,Integer> {
-    
-    @Query("SELECT t FROM tb_telefone t WHERE t.telefone = :telefone")
-    List<Telefone> buscarNumero(@Param("telefone") String telefone);
+public interface FormacaoRepository extends JpaRepository <Formacao,Integer>{
+    @Query("SELECT f FROM tb_formacao f WHERE f.curso Like CONCAT('%',:curso,'%')")
+    List<Formacao> buscarCurso(@Param("curso") String curso);
 }

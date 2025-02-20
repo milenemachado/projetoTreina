@@ -24,7 +24,7 @@ public class Usuario{
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "foto_base64", columnDefinition = "TEXT", nullable = false)
+    @Column(name = "foto_base64", columnDefinition = "LONGTEXT", nullable = false)
     private String foto;
 
     @Column(name = "caminho", nullable = false)
